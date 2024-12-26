@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gearing.studentroster.models.Dorm;
+import com.gearing.studentroster.models.Student;
 import com.gearing.studentroster.services.DormService;
 
 import jakarta.validation.Valid;
@@ -40,5 +41,12 @@ public class DormController {
 		
 		dormService.createDorm(dorm);
 		return "redirect:/dorms";
+	}
+	
+	@GetMapping("/students/new")
+	public String studentForm(Model model, @ModelAttribute Student student) {
+		List<Dorm> dorms = dormService.allDorms();
+		model.addAttribute("dorms", dorms);
+		return "studentForm.jsp";
 	}
 }
