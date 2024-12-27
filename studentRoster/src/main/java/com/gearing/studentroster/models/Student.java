@@ -14,9 +14,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
+@Table(name="students")
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

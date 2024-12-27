@@ -12,12 +12,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>All Dorms</title>
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
 		<h1>All Dorms</h1>
 		<div class="navlinks">
-			<a href="/dorms/new">Create Dorm</a>
-			<a href="/students/new">Create Student</a>
+			<a href="/dorms/new">Add a new dorm</a>
+			<a href="/students/new">Add a new student</a>
 		</div>
 		<table id="dormDisplay">
 			<thead>

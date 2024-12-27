@@ -11,21 +11,33 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>New Dorm</title>
+		<title>New Student</title>
+		<link rel="stylesheet" href="/css/style.css" />
 	</head>
 	<body>
 		<div class="header">
-			<h1>New Dorm</h1>
-			<a href="/dorms">Go Back</a>
+			<a href="/dorms">Dashboard</a>
+			<h1>New Student</h1>
 		</div>
-		<form:form action="/dorms/new" method="post" modelAttribute="dorm">
-			<div class="entries">	
+		<form:form action="/students/new" method="post" modelAttribute="student">
+			<div class="entries">
+				<span class="errors"><form:errors path="dorm" /></span>
+				<div class="row">
+					<form:label path="dorm">Dorm:</form:label>
+					<form:select path="dorm">
+						<c:forEach var="dorm" items="${dorms}">
+							<form:option value="${dorm.id}" path="dorm">
+								<c:out value="${dorm.name}" />
+							</form:option>
+						</c:forEach>
+					</form:select>
+				</div>	
 				<span class="errors"><form:errors path="name" /></span>
 				<div>
 					<form:label path="name">Name: </form:label>
 					<form:input path="name" />
 				</div>
-				<button type="submit">Create Dorm</button>
+				<button class="formButton" type="submit">Create Student</button>
 			</div>
 		</form:form>
 	</body>
